@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        
+  unordered_map<int,int>lp;
+        for(int x:nums)
+        {
+            if(x>=1)
+            {
+                lp[x]++;
+            }
+        }
+        int j=1;
+        while(true)
+        {
+            if(!lp.count(j))
+            {
+                return j;
+            }else{
+                j++;
+            }
+        }
+        
+    }
+};
