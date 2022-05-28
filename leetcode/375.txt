@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int dp[301][401];
+    
+    int solve(int st,int end)
+    {
+        if(st>=end)
+        {
+            return 0;
+        }
+     if(~dp[st][end])
+     {
+         return dp[st][end];
+         
+     }
+        int ans=INT_MAX;
+        for(int j=st;j<=end;j++)
+        {
+            ans=min(ans,max(j+solve(j+1,end),j+solve(st,j-1)));
+        }
+        return dp[st][end]=ans;
+        
+    }
+    
+    
+    
+    int getMoneyAmount(int n) {
+        memset(dp,-1,sizeof(dp));
+        return solve(0,n);
+    }
+};
