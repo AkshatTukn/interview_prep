@@ -1,2 +1,2 @@
 # interview_prep
-submissions of leetcode and codeforces solutions
+Submissions of leetcode and codeforces solutions since May 27.
