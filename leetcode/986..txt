@@ -1,0 +1,50 @@
+class Solution {
+public:
+    vector<vector<int>> intervalIntersection(vector<vector<int>>& a, vector<vector<int>>& b)
+    {
+         int n=a.size();
+        int m= b.size();
+        
+        vector<vector<int>>ans;
+        
+        int i=0,j=0;
+        int step=0;
+        while(i<n && j<m)
+        {
+            int ni = a[i][0];
+            int nj= a[i][1];
+            
+            int mi=b[j][0];
+            int mj=b[j][1];
+            step++;
+            if(mi > nj)
+            {
+                i++;
+                continue;
+            }else if(ni > mj)
+            {
+                j++;
+                continue;
+            }
+            int curx,cury;
+         int en= min(mj,nj);
+            int st =max(mi,ni);
+            ans.push_back({st,en});
+          
+           if(mj<nj)
+           {
+               j++;
+           }else if(mj>nj)
+           {
+               i++;
+           }else{
+               i++;
+               j++;
+           }
+            
+        }
+        return ans;
+         
+        
+    }
+};
